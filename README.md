@@ -29,7 +29,6 @@ This design translates die junction temperature variations ($-20^\circ\text{C}$ 
 - [Backend Digital Integration: Thermometer-to-Binary Decoder](#backend-digital-integration-thermometer-to-binary-decoder)
 - [Repository Structure](#repository-structure)
 - [Simulation & Reproduction Guide](#simulation--reproduction-guide)
-- [Course Mapping & Theoretical References](#course-mapping--theoretical-references)
 - [License](#license)
 
 ---
@@ -144,29 +143,27 @@ At $t = 1.50\text{ ns}$ steady state, sampling registers exhibit thermometer cod
 
 ---
 
-## Waveform & Plot Catalog
+## Simulation Verification & Characteristic Plots
 
-All plots and diagrams referenced below are available under `docs/figures/` and verify the simulation results:
+All vector plots, waveforms, and schematics are available in the repository under the [doc/figures/](doc/figures/) directory:
 
-### 1. Circuit Schematic (`doc/figures/schematic.pdf`)
-Complete schematic illustrating the 8 cascaded inverter stages ($M_1$ through $M_{16}$), load capacitors ($C_1$ through $C_8$), and the 8-bit D-Flip-Flop register bank ($A_1$ through $A_8$).
+### 1. Circuit Schematic
+* [📄 **schematic.pdf**](doc/figures/schematic.pdf) — Complete transistor-level schematic of the 8-stage cascaded inverter delay chain, 2 fF load capacitors, and synchronous 8-bit D-flip-flop register bank.
 
-### 2. Transfer Characteristic: Delay vs. Temperature (`doc/figures/time_vs_temp.pdf`)
-2D calibration response generated via `.step'ed .meas` data plotting $t_{pd}$ across $-20^\circ\text{C} \le T \le 100^\circ\text{C}$. The linear response confirms a constant sensitivity of $0.705\text{ ps}/^\circ\text{C}$.
+### 2. Transfer Characteristic: Delay vs. Temperature
+* [📈 **time_vs_temp.pdf**](doc/figures/time_vs_temp.pdf) — 2D calibration response generated via `.step'ed .meas` data plotting $t_{pd}$ across $-20^\circ\text{C} \le T \le +100^\circ\text{C}$. The linear response confirms a constant sensitivity of **$0.705\text{ ps}/^\circ\text{C}$**.
 
-### 3. Low-Temperature Transient Waveforms (`doc/figures/low_propagation.pdf`)
-Transient waveforms at $-20^\circ\text{C}$ and $+20^\circ\text{C}$. The wavefront reaches Stage 7 in under $0.53\text{ ns}$, causing all odd outputs ($V(Q_1), V(Q_3), V(Q_5), V(Q_7)$) to latch HIGH ($1.0\text{ V}$).
+### 3. Low-Temperature Transient Waveforms
+* [⏱️ **low_propagation.pdf**](doc/figures/low_propagation.pdf) — Transient waveforms at $-20^\circ\text{C}$ and $+20^\circ\text{C}$. The wavefront reaches Stage 7 before the $0.54\text{ ns}$ sample strobe, causing all odd outputs ($V(Q_1), V(Q_3), V(Q_5), V(Q_7)$) to latch HIGH ($1.0\text{ V}$).
 
-### 4. High-Temperature Transient Waveforms (`doc/figures/propagation_delay.pdf`)
-Transient waveforms at elevated temperatures ($+60^\circ\text{C}$ and $+100^\circ\text{C}$). Increased propagation delay pushes Stage 7 arrival beyond the strobe instant, holding $V(Q_7)$ at $0.0\text{ V}$ while earlier stages latch successfully.
+### 4. High-Temperature Transient Waveforms
+* [⏱️ **propagation_delay.pdf**](doc/figures/propagation_delay.pdf) — Transient waveforms at elevated temperatures ($+60^\circ\text{C}$ and $+100^\circ\text{C}$). Increased propagation delay pushes Stage 7 arrival beyond the strobe instant, holding $V(Q_7)$ at $0.0\text{ V}$ while earlier stages latch successfully.
 
-### 5. Strobe vs. Tap7 Wavefront Margin (`doc/figures/t7_withSample.pdf`)
-Detailed overlay of $V(\text{tap7})$ transitions against the rising edge of $V(\text{sample})$ at $0.54\text{ ns}$, confirming setup and hold timing margins across temperature corners.
+### 5. Strobe vs. Tap 7 Wavefront Margin
+* [🔍 **t7_withSample.pdf**](doc/figures/t7_withSample.pdf) — Detailed overlay of $V(\text{tap7})$ transitions against the rising edge of $V(\text{sample})$ at $0.54\text{ ns}$, confirming setup and hold timing margins across temperature corners.
 
-### 6. Architectural Floorplan & Layout Block Diagram (`doc/figures/block_diagram.png`)
-High-level architectural schematic showing the 8-stage delay line and the parallel transmission-gate register bank busing out to thermometer lines $Q[7:0]$.
-
----
+### 6. Architectural Block Diagram
+* [🖼️ **block_diagram.png**](doc/figures/block_diagram.png) — High-level structural floorplan and interconnect routing between the delay line and the register bank.
 
 ## Backend Digital Integration: Thermometer-to-Binary Decoder
 
