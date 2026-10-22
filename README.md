@@ -162,9 +162,6 @@ All vector plots, waveforms, and schematics are available in the repository unde
 ### 5. Strobe vs. Tap 7 Wavefront Margin
 * [ **t7_withSample.pdf**](doc/figures/t7_withSample.pdf) — Detailed overlay of $V(\text{tap7})$ transitions against the rising edge of $V(\text{sample})$ at $0.54\text{ ns}$, confirming setup and hold timing margins across temperature corners.
 
-### 6. Architectural Block Diagram
-* [ **block_diagram.png**](doc/figures/block_diagram.png) — High-level structural floorplan and interconnect routing between the delay line and the register bank.
-
 ## Backend Digital Integration: Thermometer-to-Binary Decoder
 
 In physical mixed-signal VLSI implementations, thermometer code is selected at the sensor core to guarantee monotonicity and prevent output code glitching. Conversion into a compact 2-bit binary index ($B_1 B_0$) for on-chip Dynamic Voltage and Frequency Scaling (DVFS) cores is synthesized via combinational priority logic:
@@ -204,7 +201,6 @@ all-digital-cmos-tdc-temp-sensor/
         ├── low_propagation.pdf         # Sampled waveforms at low/nominal temperature
         ├── propagation_delay.pdf       # Sampled waveforms under high thermal delay
         ├── t7_withSample.pdf           # Wavefront vs. sampling strobe alignment
-        └── block_diagram.png           # Architectural block diagram
  
  ```
 
