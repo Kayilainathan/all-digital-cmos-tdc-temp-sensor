@@ -4,7 +4,7 @@
 [![Technology Node](https://img.shields.io/badge/Node-45nm%20PTM%20BSIM4-orange.svg)](https://ptm.asu.edu/)
 [![Supply Voltage](https://img.shields.io/badge/V_DD-1.0V-brightgreen.svg)](#)
 [![Architecture](https://img.shields.io/badge/Architecture-Tapped%20Delay%20Line%20TDC-purple.svg)](#)
-[![Affiliation](https://img.shields.io/badge/Anna%20University-CEG%20%2F%20MIT-red.svg)](https://www.annauniv.edu/)
+[![Affiliation](https://img.shields.io/badge/Anna%20University-%20MIT-red.svg)](https://www.annauniv.edu/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 An on-chip, all-digital CMOS temperature sensor and Time-to-Digital Converter (TDC) core modeled and verified at the transistor level using the **Predictive Technology Model (PTM) 45nm BSIM4** device models in LTspice. 
