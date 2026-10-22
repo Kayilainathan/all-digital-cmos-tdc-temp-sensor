@@ -148,22 +148,22 @@ At $t = 1.50\text{ ns}$ steady state, sampling registers exhibit thermometer cod
 All vector plots, waveforms, and schematics are available in the repository under the [doc/figures/](doc/figures/) directory:
 
 ### 1. Circuit Schematic
-* [📄 **schematic.pdf**](doc/figures/schematic.pdf) — Complete transistor-level schematic of the 8-stage cascaded inverter delay chain, 2 fF load capacitors, and synchronous 8-bit D-flip-flop register bank.
+* [ **schematic.pdf**](doc/figures/schematic.pdf) — Complete transistor-level schematic of the 8-stage cascaded inverter delay chain, 2 fF load capacitors, and synchronous 8-bit D-flip-flop register bank.
 
 ### 2. Transfer Characteristic: Delay vs. Temperature
-* [📈 **time_vs_temp.pdf**](doc/figures/time_vs_temp.pdf) — 2D calibration response generated via `.step'ed .meas` data plotting $t_{pd}$ across $-20^\circ\text{C} \le T \le +100^\circ\text{C}$. The linear response confirms a constant sensitivity of **$0.705\text{ ps}/^\circ\text{C}$**.
+* [ **time_vs_temp.pdf**](doc/figures/time_vs_temp.pdf) — 2D calibration response generated via `.step'ed .meas` data plotting $t_{pd}$ across $-20^\circ\text{C} \le T \le +100^\circ\text{C}$. The linear response confirms a constant sensitivity of **$0.705\text{ ps}/^\circ\text{C}$**.
 
 ### 3. Low-Temperature Transient Waveforms
-* [⏱️ **low_propagation.pdf**](doc/figures/low_propagation.pdf) — Transient waveforms at $-20^\circ\text{C}$ and $+20^\circ\text{C}$. The wavefront reaches Stage 7 before the $0.54\text{ ns}$ sample strobe, causing all odd outputs ($V(Q_1), V(Q_3), V(Q_5), V(Q_7)$) to latch HIGH ($1.0\text{ V}$).
+* [ **low_propagation.pdf**](doc/figures/low_propagation.pdf) — Transient waveforms at $-20^\circ\text{C}$ and $+20^\circ\text{C}$. The wavefront reaches Stage 7 before the $0.54\text{ ns}$ sample strobe, causing all odd outputs ($V(Q_1), V(Q_3), V(Q_5), V(Q_7)$) to latch HIGH ($1.0\text{ V}$).
 
 ### 4. High-Temperature Transient Waveforms
-* [⏱️ **propagation_delay.pdf**](doc/figures/propagation_delay.pdf) — Transient waveforms at elevated temperatures ($+60^\circ\text{C}$ and $+100^\circ\text{C}$). Increased propagation delay pushes Stage 7 arrival beyond the strobe instant, holding $V(Q_7)$ at $0.0\text{ V}$ while earlier stages latch successfully.
+* [ **propagation_delay.pdf**](doc/figures/propagation_delay.pdf) — Transient waveforms at elevated temperatures ($+60^\circ\text{C}$ and $+100^\circ\text{C}$). Increased propagation delay pushes Stage 7 arrival beyond the strobe instant, holding $V(Q_7)$ at $0.0\text{ V}$ while earlier stages latch successfully.
 
 ### 5. Strobe vs. Tap 7 Wavefront Margin
-* [🔍 **t7_withSample.pdf**](doc/figures/t7_withSample.pdf) — Detailed overlay of $V(\text{tap7})$ transitions against the rising edge of $V(\text{sample})$ at $0.54\text{ ns}$, confirming setup and hold timing margins across temperature corners.
+* [ **t7_withSample.pdf**](doc/figures/t7_withSample.pdf) — Detailed overlay of $V(\text{tap7})$ transitions against the rising edge of $V(\text{sample})$ at $0.54\text{ ns}$, confirming setup and hold timing margins across temperature corners.
 
 ### 6. Architectural Block Diagram
-* [🖼️ **block_diagram.png**](doc/figures/block_diagram.png) — High-level structural floorplan and interconnect routing between the delay line and the register bank.
+* [ **block_diagram.png**](doc/figures/block_diagram.png) — High-level structural floorplan and interconnect routing between the delay line and the register bank.
 
 ## Backend Digital Integration: Thermometer-to-Binary Decoder
 
@@ -198,16 +198,15 @@ all-digital-cmos-tdc-temp-sensor/
 │   ├── TDC_Temp_Sensor.raw             # Binary transient waveform simulation data
 │   └── TDC_Temp_Sensor.log             # Simulation execution log containing .measure data
 ├── docs/
-│   └── figures/
-│       ├── schematic.pdf               # Complete schematic drawing
-│       ├── time_vs_temp.pdf            # 2D delay vs. temperature calibration plot
-│       ├── low_propagation.pdf         # Sampled waveforms at low/nominal temperature
-│       ├── propagation_delay.pdf       # Sampled waveforms under high thermal delay
-│       ├── t7_withSample.pdf           # Wavefront vs. sampling strobe alignment
-│       └── block_diagram.png           # Architectural block diagram
-└── scripts/
-    └── parse_ltspice_log.py            # Automated log parser & sensitivity metric calculator
-```
+   └── figures/
+        ├── schematic.pdf               # Complete schematic drawing
+        ├── time_vs_temp.pdf            # 2D delay vs. temperature calibration plot
+        ├── low_propagation.pdf         # Sampled waveforms at low/nominal temperature
+        ├── propagation_delay.pdf       # Sampled waveforms under high thermal delay
+        ├── t7_withSample.pdf           # Wavefront vs. sampling strobe alignment
+        └── block_diagram.png           # Architectural block diagram
+ 
+ ```
 
 ---
 
