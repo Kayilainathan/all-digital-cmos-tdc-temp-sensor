@@ -133,7 +133,7 @@ $$S = \frac{\Delta t_{pd}}{\Delta T} = \frac{357.06\text{ ps} - 272.41\text{ ps}
 
 At $t = 1.50\text{ ns}$ steady state, sampling registers exhibit thermometer code contraction as temperature scales:
 
-| Step | Temperature ($T$) | $Q_1$ | $Q_3$ | $Q_5$ | $Q_7$ | Thermometer Word ($Q[7,5,3,1]$) | Active Code Count |
+| Step | Temperature ($T$) | $Q_1$ | $Q_3$ | $Q_5$ | $Q_7$ | Thermometer Word ($Q[1,3,5,7]$) | Active Code Count |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **1** | **$-20^\circ\text{C}$** | $1.0\text{ V}$ | $1.0\text{ V}$ | $1.0\text{ V}$ | $1.0\text{ V}$ | `1 1 1 1` | **4 Bits** (Fastest) |
 | **2** | **$+20^\circ\text{C}$** | $1.0\text{ V}$ | $1.0\text{ V}$ | $1.0\text{ V}$ | $1.0\text{ V}$ | `1 1 1 1` | **4 Bits** (Nominal) |
@@ -148,22 +148,22 @@ At $t = 1.50\text{ ns}$ steady state, sampling registers exhibit thermometer cod
 
 All plots and diagrams referenced below are available under `docs/figures/` and verify the simulation results:
 
-### 1. Circuit Schematic (`docs/figures/schematic.pdf`)
+### 1. Circuit Schematic (`doc/figures/schematic.pdf`)
 Complete schematic illustrating the 8 cascaded inverter stages ($M_1$ through $M_{16}$), load capacitors ($C_1$ through $C_8$), and the 8-bit D-Flip-Flop register bank ($A_1$ through $A_8$).
 
-### 2. Transfer Characteristic: Delay vs. Temperature (`docs/figures/time_vs_temp.pdf`)
+### 2. Transfer Characteristic: Delay vs. Temperature (`doc/figures/time_vs_temp.pdf`)
 2D calibration response generated via `.step'ed .meas` data plotting $t_{pd}$ across $-20^\circ\text{C} \le T \le 100^\circ\text{C}$. The linear response confirms a constant sensitivity of $0.705\text{ ps}/^\circ\text{C}$.
 
-### 3. Low-Temperature Transient Waveforms (`docs/figures/low_propagation.pdf`)
+### 3. Low-Temperature Transient Waveforms (`doc/figures/low_propagation.pdf`)
 Transient waveforms at $-20^\circ\text{C}$ and $+20^\circ\text{C}$. The wavefront reaches Stage 7 in under $0.53\text{ ns}$, causing all odd outputs ($V(Q_1), V(Q_3), V(Q_5), V(Q_7)$) to latch HIGH ($1.0\text{ V}$).
 
-### 4. High-Temperature Transient Waveforms (`docs/figures/propagation_delay.pdf`)
+### 4. High-Temperature Transient Waveforms (`doc/figures/propagation_delay.pdf`)
 Transient waveforms at elevated temperatures ($+60^\circ\text{C}$ and $+100^\circ\text{C}$). Increased propagation delay pushes Stage 7 arrival beyond the strobe instant, holding $V(Q_7)$ at $0.0\text{ V}$ while earlier stages latch successfully.
 
-### 5. Strobe vs. Tap7 Wavefront Margin (`docs/figures/t7_withSample.pdf`)
+### 5. Strobe vs. Tap7 Wavefront Margin (`doc/figures/t7_withSample.pdf`)
 Detailed overlay of $V(\text{tap7})$ transitions against the rising edge of $V(\text{sample})$ at $0.54\text{ ns}$, confirming setup and hold timing margins across temperature corners.
 
-### 6. Architectural Floorplan & Layout Block Diagram (`docs/figures/block_diagram.png`)
+### 6. Architectural Floorplan & Layout Block Diagram (`doc/figures/block_diagram.png`)
 High-level architectural schematic showing the 8-stage delay line and the parallel transmission-gate register bank busing out to thermometer lines $Q[7:0]$.
 
 ---
@@ -239,15 +239,6 @@ all-digital-cmos-tdc-temp-sensor/
 
 ---
 
-## Course Mapping & Theoretical References
-
-### Academic Context
-- **Institution:** Department of Electronics and Instrumentation Engineering (EIE), CEG / MIT Campus, Anna University, Chennai.
-- **Course:** Semester 5 — VLSI Design & Technology (Course Code: EI23038).
-- **Course Outcomes Addressed:**
-  - **CO1:** Relate physical characteristics and realize modeling of MOS transistors under temperature variation ($L1-3$).
-  - **CO2:** Realize combinational and sequential logic styles satisfying timing and static/dynamic requirements ($L3-4$).
-  - **CO3:** Address timing issues of sequential sampling networks and register banks ($L3$).
 
 ### Core References
 1. N. H. E. Weste, K. Eshraghian, *Principles of CMOS VLSI Design: A Systems Perspective*, 2nd ed., Addison-Wesley, 1988/2004.
